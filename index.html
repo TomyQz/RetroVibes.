@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Retro Vibes</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000 url('https://www.transparenttextures.com/patterns/stardust.png') repeat center center fixed;
+      background-size: cover;
+      font-family: 'Press Start 2P', cursive;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2em;
+      padding: 60px 20px 20px;
+      animation: colorChange 3s infinite;
+      text-shadow: 2px 2px 5px #ff00ff;
+      color: #00ffff;
+    }
+
+    @keyframes colorChange {
+      0% { color: #00ffff; }
+      25% { color: #ff00ff; }
+      50% { color: #ffff00; }
+      75% { color: #00ff00; }
+      100% { color: #00ffff; }
+    }
+
+    p {
+      font-size: 0.7em;
+      color: #bbb;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      p {
+        font-size: 0.6em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to retrovibes.website</h1>
+  <p>Propiedad de José Cornejo</p>
+</body>
+</html>
