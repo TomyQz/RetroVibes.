@@ -307,64 +307,28 @@
     <div class="result" id="result"></div>
   </div>
 
-  <div class="section">
-    <h2 style="color:#00ffcc;">📚 Fuentes consultadas</h2>
-    <ul style="text-align: left; font-size: 0.6em; color: #ccc; padding-left: 20px; list-style: square;">
-      <li>
-        Organización Mundial de la Salud (2020). <em>“Recomendaciones sobre el sueño saludable”</em>. 
-        <a href="https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet" target="_blank" style="color:#00ffff;">who.int</a>
-      </li>
-      <li>
-        National Sleep Foundation (2021). <em>“Ciclo del Sueño: Fases y Ritmo Circadiano”</em>.
-        <a href="https://www.sleepfoundation.org/how-sleep-works/what-happens-when-you-sleep" target="_blank" style="color:#00ffff;">sleepfoundation.org</a>
-      </li>
-      <li>
-        Harvard Medical School (2019). <em>“Understanding the Sleep Cycle”</em>.
-        <a href="https://www.health.harvard.edu/staying-healthy/understanding-the-sleep-cycle" target="_blank" style="color:#00ffff;">health.harvard.edu</a>
-      </li>
-      <li>
-        Mayo Clinic (2020). <em>“Tips for Better Sleep”</em>.
-        <a href="https://www.mayoclinic.org/healthy-lifestyle/adult-health/expert-answers/sleep/faq-20058545" target="_blank" style="color:#00ffff;">mayoclinic.org</a>
-      </li>
-      <li>
-        American Academy of Sleep Medicine (2021). <em>“Healthy Sleep Habits”</em>.
-        <a href="https://sleepeducation.org/healthy-sleep-habits/" target="_blank" style="color:#00ffff;">sleepeducation.org</a>
-      </li>
-    </ul>
+  <!-- Contenedor del SWF -->
+  <div id="swf-container" style="text-align: center; margin-top: 30px;">
+    <div id="ruffle"></div>
   </div>
+
+  <script src="https://unpkg.com/ruffle-web@latest/ruffle.js"></script>
+  <script>
+    // Cargar el SWF usando Ruffle
+    window.addEventListener("load", function () {
+      var ruffle = window.RufflePlayer.newest();
+      var container = document.getElementById("ruffle");
+
+      // Reemplaza 'path/to/tu-archivo.swf' con la ruta de tu archivo .swf
+      var player = ruffle.createPlayer();
+      container.appendChild(player);
+      player.load("path/to/tu-archivo.swf");
+    });
+  </script>
 
   <footer>
     Página diseñada por José Cornejo &middot; Todos los derechos reservados &middot; retrovibes.website
   </footer>
-
-  <script>
-    function toggleAccordion(header) {
-      const item = header.parentElement;
-      item.classList.toggle("open");
-    }
-
-    function calcularResultado() {
-      let score = 0;
-      const form = document.getElementById('autoevaluacionForm');
-      const resultDiv = document.getElementById('result');
-
-      if (form.elements['habit1'].checked) score++;
-      if (form.elements['habit2'].checked) score++;
-      if (form.elements['habit3'].checked) score++;
-      if (form.elements['habit4'].checked) score++;
-
-      let resultMessage = '';
-      if (score === 4) {
-        resultMessage = '¡Excelente! Estás siguiendo buenas prácticas de higiene del sueño.';
-      } else if (score >= 2) {
-        resultMessage = 'Buen trabajo. Hay algunos hábitos que podrías mejorar.';
-      } else {
-        resultMessage = 'Parece que necesitas mejorar algunos hábitos para tener una mejor higiene del sueño.';
-      }
-
-      resultDiv.innerHTML = resultMessage;
-    }
-  </script>
 
 </body>
 </html>
