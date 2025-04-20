@@ -341,8 +341,9 @@
   <!-- Contenedor para el archivo SWF -->
   <div id="swf-container" style="text-align: center;">
     <div id="ruffle"></div>
+ <p id="flash-message" style="display:none;">Este juego requiere Flash. Si no lo ves, asegúrate de tener habilitado el plugin o intenta actualizar tu navegador.</p>
   </div>
-
+  
   <!-- Script de Ruffle -->
   <script src="https://unpkg.com/ruffle-web@latest/ruffle.js"></script>
   <script>
@@ -373,6 +374,7 @@
       item.classList.toggle("open");
     }
 
+    
     // Función para calcular el resultado de la autoevaluación
     function calcularResultado() {
       var form = document.getElementById("autoevaluacionForm");
