@@ -307,28 +307,93 @@
     <div class="result" id="result"></div>
   </div>
 
-  <!-- Contenedor del SWF -->
-  <div id="swf-container" style="text-align: center; margin-top: 30px;">
+  <div class="section">
+    <h2 style="color:#00ffcc;">📚 Fuentes consultadas</h2>
+    <ul style="text-align: left; font-size: 0.6em; color: #ccc; padding-left: 20px; list-style: square;">
+      <li>
+        Organización Mundial de la Salud (2020). <em>“Recomendaciones sobre el sueño saludable”</em>. 
+        <a href="https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet" target="_blank" style="color:#00ffff;">who.int</a>
+      </li>
+      <li>
+        National Sleep Foundation (2021). <em>“Ciclo del Sueño: Fases y Ritmo Circadiano”</em>.
+        <a href="https://www.sleepfoundation.org/how-sleep-works/what-happens-when-you-sleep" target="_blank" style="color:#00ffff;">sleepfoundation.org</a>
+      </li>
+      <li>
+        Harvard Medical School (2019). <em>“Understanding the Sleep Cycle”</em>.
+        <a href="https://www.health.harvard.edu/staying-healthy/understanding-the-sleep-cycle" target="_blank" style="color:#00ffff;">health.harvard.edu</a>
+      </li>
+      <li>
+        Mayo Clinic (2020). <em>“Tips for Better Sleep”</em>.
+        <a href="https://www.mayoclinic.org/healthy-lifestyle/adult-health/expert-answers/sleep/faq-20058545" target="_blank" style="color:#00ffff;">mayoclinic.org</a>
+      </li>
+      <li>
+        American Academy of Sleep Medicine (2021). <em>“Better Sleep for a Better You”</em>.
+        <a href="https://www.sleepeducation.org/" target="_blank" style="color:#00ffff;">sleepeducation.org</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Contenedor para el archivo SWF -->
+  <div id="swf-container" style="text-align: center;">
     <div id="ruffle"></div>
   </div>
 
+  <!-- Script de Ruffle -->
   <script src="https://unpkg.com/ruffle-web@latest/ruffle.js"></script>
   <script>
-    // Cargar el SWF usando Ruffle
     window.addEventListener("load", function () {
+      // Crear el reproductor Ruffle
       var ruffle = window.RufflePlayer.newest();
       var container = document.getElementById("ruffle");
 
-      // Reemplaza 'path/to/tu-archivo.swf' con la ruta de tu archivo .swf
+      // Crear el reproductor de Flash
       var player = ruffle.createPlayer();
+      
+      // Insertar el reproductor dentro del contenedor en la página
       container.appendChild(player);
-      player.load("path/to/tu-archivo.swf");
+
+      // Cargar el archivo SWF
+      player.load("juego.swf"); // Asegúrate de tener el archivo juego.swf en el mismo directorio
     });
   </script>
 
   <footer>
-    Página diseñada por José Cornejo &middot; Todos los derechos reservados &middot; retrovibes.website
+    <p>&copy; 2025 Higiene del Sueño. Todos los derechos reservados.</p>
   </footer>
 
+  <script>
+    // Función para alternar la visibilidad de las secciones del acordeón
+    function toggleAccordion(header) {
+      var item = header.parentElement;
+      item.classList.toggle("open");
+    }
+
+    // Función para calcular el resultado de la autoevaluación
+    function calcularResultado() {
+      var form = document.getElementById("autoevaluacionForm");
+      var result = document.getElementById("result");
+      var checkedCount = 0;
+
+      var habit1 = form.elements["habit1"].checked;
+      var habit2 = form.elements["habit2"].checked;
+      var habit3 = form.elements["habit3"].checked;
+      var habit4 = form.elements["habit4"].checked;
+
+      if (habit1) checkedCount++;
+      if (habit2) checkedCount++;
+      if (habit3) checkedCount++;
+      if (habit4) checkedCount++;
+
+      if (checkedCount == 4) {
+        result.textContent = "¡Excelente! Tu higiene del sueño es muy buena.";
+      } else if (checkedCount == 3) {
+        result.textContent = "Bien hecho, pero podrías mejorar algunos hábitos.";
+      } else if (checkedCount == 2) {
+        result.textContent = "Estás en el camino correcto, pero aún necesitas mejorar tu higiene del sueño.";
+      } else {
+        result.textContent = "Parece que necesitas hacer algunos cambios importantes en tus hábitos de sueño.";
+      }
+    }
+  </script>
 </body>
 </html>
